@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Desafio Módulo 1</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="center">Pesquisa de Usuários</h1>
+      <div id="spinner" class="flex-row flex-center">
+        <div class="preloader-wrapper small active">
+          <div class="spinner-layer spinner-red-only">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+              <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+        </div>
+        <span class="loadingText">Aguarde...</span>
+      </div>
+      <div class="flex-row flex-center filter">
+        <input type="text" id="inputFilter" placeholder="filtro" />
+        <button id="buttonFilter" class="wave-effect waves-light red btn">
+          Filtrar
+        </button>
+      </div>
+      <div id="results"></div>
+    </div>
+    <script src="./js/script.js" defer></script>
+  </body>
+</html>
