@@ -1,0 +1,12 @@
+{
+  "name": "aula13",
+  "version": "1.0.0",
+  "description": "Refatoração aula 13",
+  "main": "index.js",
+  "author": "Alexandre",
+  "license": "MIT",
+  "scripts": {"start": "live-server"},
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  }
+}
