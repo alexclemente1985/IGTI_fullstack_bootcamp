@@ -8,7 +8,6 @@ let report = null;
 let input = null;
 
 const start = () =>{
-    console.log("Inicio da aplicação");
     initialize();
     activateInput();
     render();
@@ -87,11 +86,8 @@ function createInput(form){
     form.appendChild(inputDiv);
 }
 
-
-
 const activateInput = () =>{
     const insertName = (newName) =>{
-        //globalNames.push(newName);
         globalNames = [...globalNames, newName]
     }
     const updateName = (name) =>{
@@ -183,11 +179,6 @@ const render = () =>{
     }else{
         report.replaceChild(ul,report.children[0]);
     }
-
-
-
-
 }
-
 
 start();
