@@ -1,0 +1,64 @@
+{
+  "nextID": 17,
+  "accounts": [
+    {
+      "id": 1,
+      "name": "Trippa de Sá Clemente Pinheiro",
+      "balance": 20000
+    },
+    {
+      "id": 4,
+      "name": "Trippa Clemente Pinheiro",
+      "balance": 4
+    },
+    {
+      "id": 5,
+      "name": "Tripple",
+      "balance": 747474774
+    },
+    {
+      "id": 8,
+      "name": "Tripple",
+      "balance": 747474774
+    },
+    {
+      "id": 9,
+      "name": "Tripple2",
+      "balance": 747474774
+    },
+    {
+      "id": 10,
+      "name": "Tripple2"
+    },
+    {
+      "id": 11,
+      "name": "Tripple2",
+      "balance": 747474774
+    },
+    {
+      "id": 12,
+      "name": "Tripple2",
+      "balance": 747474774
+    },
+    {
+      "id": 13,
+      "name": "Tripple2",
+      "balance": 747474774
+    },
+    {
+      "id": 14,
+      "name": "Tripple2",
+      "balance": 747474774
+    },
+    {
+      "id": 15,
+      "name": "Tripple2",
+      "balance": 0
+    },
+    {
+      "id": 16,
+      "name": "Alexandre Pinheiro",
+      "balance": 23323.32
+    }
+  ]
+}

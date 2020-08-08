@@ -1,0 +1,16 @@
+{
+  "name": "test-cors",
+  "version": "1.0.0",
+  "description": "Teste de cors da API",
+  "main": "index.js",
+  "author": "Alexandre Clemente Pinheiro",
+  "license": "MIT",
+  "scripts": {"start": "nodemon -r esm index.js"},
+  "dependencies": {
+    "esm": "^3.2.25",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
