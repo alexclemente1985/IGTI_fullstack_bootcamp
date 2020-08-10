@@ -1,0 +1,20 @@
+{
+  "name": "desafioMod2",
+  "version": "1.0.0",
+  "description": "Desafio Modulo 2",
+  "main": "index.js",
+  "author": "Alexandre Clemente Pinheiro",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon -r esm index.js"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "esm": "^3.2.25",
+    "express": "^4.17.1",
+    "winston": "^3.3.3"
+  }
+}
