@@ -1,0 +1,24 @@
+.flexRow {
+    display: flex;
+    flex-direction: row;
+}
+
+.desc-inss {
+    color: #e67e22 !important;
+    font-weight: bold;
+}
+
+.inss {
+    color: #000 !important;
+    font-weight: bold;
+}
+
+.desc-irpf {
+    color: #c0392b !important;
+    font-weight: bold;
+}
+
+.irpf {
+    color: #000 !important;
+    font-weight: bold;
+}

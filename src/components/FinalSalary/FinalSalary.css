@@ -1,0 +1,20 @@
+.final-salary-container {
+    display: flex;
+
+    width: "100%";
+    flex-direction: row;
+    justify-content: flex-start;
+}
+.final-salary {
+    color: #16a085 !important;
+    font-weight: bold;
+}
+.empty-spacer {
+    margin-left: 8px;
+    margin-right: 8px;
+    background-color: lightcoral;
+}
+
+.final-salary-hidden {
+    visibility: hidden;
+}
