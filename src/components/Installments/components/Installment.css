@@ -1,0 +1,39 @@
+.installment-container {
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+    border: 1px solid #dfdfdf;
+    justify-content: flex-start !important;
+    background-color: white;
+    border-radius: 5px;
+    min-width: 140px;
+    margin: 8px;
+
+    align-items: center;
+}
+
+.installment-number {
+    color: #4d4d4d;
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+.installment-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.value-row {
+    color: #24b157;
+    font-weight: bold;
+}
+.negative-value-row {
+    color: #ff3b47;
+    font-weight: bold;
+}
+.mensal-tax {
+    color: #31b2f3;
+}
+.negative-mensal-tax {
+    color: #ff5b42;
+}

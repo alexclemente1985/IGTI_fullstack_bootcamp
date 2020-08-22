@@ -1,0 +1,21 @@
+.input-card-container {
+    margin-left: 8px;
+    margin-right: 8px;
+    flex: 1;
+}
+
+.input-field input[type="number"]:focus + label {
+    font-weight: bold;
+}
+
+.negative-tax input[type="number"]:focus,
+.negative-capital input[type="number"]:focus {
+    border-bottom: 1px solid #c0392b !important;
+    box-shadow: 0 1px 0 0 #c0392b !important;
+}
+
+.negative-tax input[type="number"]:focus + label,
+.negative-capital input[type="number"]:focus + label {
+    color: #c0392b !important;
+    font-weight: bold;
+}

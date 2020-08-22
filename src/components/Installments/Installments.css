@@ -1,0 +1,8 @@
+.installments {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: flex-start;
+    padding: 0 !important;
+}
