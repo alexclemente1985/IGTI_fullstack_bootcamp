@@ -1,3 +1,4 @@
+import dotenv from 'dotenv';
 import express from 'express';
 import { DBClose, DBConnection } from '../config/DBConfig';
 import AccountModel from '../models/AccountModel';
@@ -12,10 +13,14 @@ const balanceFormatter = (agency, account, name, balance) => {
 
 const accountsRouter = express();
 
+dotenv.config();
+const user = process.env.USERDB;
+const pass = process.env.PWDDB;
+
 //CREATE
 accountsRouter.post('/account', async(req,res)=>{
     try{
-        DBConnection();
+        DBConnection(user,pass);
         const account = new AccountModel(req.body);
         await account.save();
         res.send(account);
@@ -29,7 +34,7 @@ accountsRouter.post('/account', async(req,res)=>{
 //RETRIEVE
 accountsRouter.get('/account', async(req,res)=>{
     try{
-        DBConnection();    
+        DBConnection(user,pass);    
         const account = await AccountModel.find({});
         
         res.send(account);
@@ -44,7 +49,7 @@ accountsRouter.get('/account', async(req,res)=>{
 //DEPOSIT
 accountsRouter.patch('/account', async(req,res)=>{
     try{
-        DBConnection()    
+        DBConnection(user,pass)    
         const {agencia, conta, valor} = req.body;
         const account = await AccountModel.findOneAndUpdate({agencia,conta},
             {$inc:{balance:valor}},{new: true});
@@ -63,7 +68,7 @@ accountsRouter.patch('/account', async(req,res)=>{
 //WITHDRAW
 accountsRouter.patch('/account/withdraw', async(req,res)=>{
     try{
-        DBConnection();
+        DBConnection(user,pass);
         const {agencia, conta, valor} = req.body;
         const account = await AccountModel.findOne({agencia,conta});
         
@@ -89,7 +94,7 @@ accountsRouter.patch('/account/withdraw', async(req,res)=>{
 //ACCOUNT BALANCE
 accountsRouter.get('/account/balance', async(req,res)=>{
     try{
-    DBConnection();
+    DBConnection(user,pass);
     const {agencia, conta} = req.body;    
     const account = await AccountModel.findOne({agencia,conta});
         
@@ -109,7 +114,7 @@ accountsRouter.get('/account/balance', async(req,res)=>{
 //ACCOUNT CLOSURE
 accountsRouter.delete('/account/closure',async(req,res)=>{
     try{
-        DBConnection();
+        DBConnection(user,pass);
         const{agencia,conta}=req.body;
         const account = await AccountModel.findOneAndDelete({agencia,conta});
 
@@ -139,7 +144,7 @@ accountsRouter.delete('/account/closure',async(req,res)=>{
 //TRANSFERS
 accountsRouter.patch('/account/transfer', async(req,res)=>{
     try{
-        DBConnection();
+        DBConnection(user,pass);
         const {agenciaorigem,agenciadestino,contaorigem,contadestino,valor} = req.body;
         let debt = 0;
         let credit = 0;
@@ -206,7 +211,7 @@ accountsRouter.patch('/account/transfer', async(req,res)=>{
 //DELETE
 accountsRouter.delete('/account/:id', async(req,res)=>{
     try{
-        DBConnection();
+        DBConnection(user,pass);
         const id = req.params.id;
         const accountDeleted = await AccountModel.findByIdAndDelete({_id: id});
         if(!accountDeleted){
@@ -224,7 +229,7 @@ accountsRouter.delete('/account/:id', async(req,res)=>{
 // AGENCY BALANCES AVERAGE
 accountsRouter.get('/accounts/average',async (req,res)=>{
     try{
-        DBConnection();
+        DBConnection(user,pass);
         const {agencia} = req.body;
 
         const agencyAverage = await AccountModel.aggregate([
@@ -254,7 +259,7 @@ accountsRouter.get('/accounts/average',async (req,res)=>{
 //MIN BALANCE
 accountsRouter.get('/accounts/minbalance', async(req,res)=>{
     try{
-        DBConnection();
+        DBConnection(user,pass);
         const {qtd} = req.body;    
         const data = await AccountModel.find({}).limit(qtd).sort({balance:1})
 
@@ -263,7 +268,7 @@ accountsRouter.get('/accounts/minbalance', async(req,res)=>{
         };
         
         const clients = data.map((client)=>{
-            return balanceFormatter(client.agencia, client.conta,client.balance);
+            return balanceFormatter(client.agencia, client.conta,null,client.balance);
         })
 
         res.send(clients);
@@ -284,7 +289,7 @@ accountsRouter.get('/accounts/minbalance', async(req,res)=>{
 //MAX BALANCES
 accountsRouter.get('/accounts/richies', async(req,res)=>{
     try{
-        DBConnection();
+        DBConnection(user,pass);
         const {qtd} = req.body;    
         const data = await AccountModel.find({}).limit(qtd).sort({balance:-1,name:1})
 
@@ -314,7 +319,7 @@ accountsRouter.get('/accounts/richies', async(req,res)=>{
 //PRIVATE AGENCY
 accountsRouter.get('/accounts/private', async(req,res)=>{
     try{
-        DBConnection();
+        DBConnection(user,pass);
        
         const data = await AccountModel.find({})
             .sort({agencia:1,balance:-1})

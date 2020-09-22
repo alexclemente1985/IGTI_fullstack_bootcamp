@@ -1,7 +1,8 @@
 import mongoose from 'mongoose';
+import Constants from '../Constants';
 
-const DBConnection = () =>{
-    mongoose.connect("mongodb+srv://alexandre:pass@igti-fullstack-bootcamp.zn883.mongodb.net/IGTI?retryWrites=true&w=majority",{ 
+const DBConnection = (user,pass) =>{
+    mongoose.connect(Constants.MONGO_CONNECTION.replace('%u',user).replace('%p',pass),{ 
             useNewUrlParser: true, 
             useUnifiedTopology: true,
             useFindAndModify: false

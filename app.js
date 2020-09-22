@@ -1,3 +1,4 @@
+import dotenv from 'dotenv';
 import express from 'express';
 import fs from "fs";
 import { promisify } from "util";
@@ -12,11 +13,16 @@ const app = express();
 app.use(express.json());
 app.use(accountsRouter);
 
-app.listen(3000,async (req,res)=>{
-    console.log('API iniciada!');
+dotenv.config();
+const user = process.env.USERDB;
+const pass = process.env.PWDDB;
+const port = process.env.PORT;
 
+app.listen(port,async (req,res)=>{
+    console.log('API iniciada!');
+    
     try {
-        DBConnection();
+        DBConnection(user,pass);
         const databaseAccounts = await AccountModel.find();
         if(databaseAccounts.length === 0){
           try{
