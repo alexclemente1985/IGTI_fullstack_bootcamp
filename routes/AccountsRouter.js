@@ -149,8 +149,6 @@ accountsRouter.patch('/account/transfer', async(req,res)=>{
         let debt = 0;
         let credit = 0;
 
-        console.log(typeof valor)
-
         const accounts = await AccountModel.find({
             $or:[
                 {$and:[{conta: contaorigem},{agencia:agenciaorigem}]},
