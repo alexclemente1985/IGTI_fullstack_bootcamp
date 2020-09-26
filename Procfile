@@ -1,1 +1,1 @@
-web: node -r esm dotenv/config app.js
+web: node -r esm app.js
